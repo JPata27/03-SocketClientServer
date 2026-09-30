@@ -49,12 +49,13 @@ public class Client {
                                 // Legge una riga digitata dall'utente
                                 String msg = keyInput.nextLine();
 
+                                // Invia il messaggio al server
+                                output.println(msg);
+
                                 // exit command
                                 if (msg.equalsIgnoreCase("exit"))
                                         break;
 
-                                // Invia il messaggio al server
-                                output.println(msg);
 
                                 String response = input.readLine();
 
