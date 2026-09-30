@@ -28,7 +28,7 @@ public class Server {
 
 
             // Conferma che un client si è connesso
-            System.out.printf("\n\nClient Connesso: %s:%d", socket.getInetAddress().getHostAddress(), socket.getPort());
+            System.out.printf("\n\nClient Connesso ---> %s\n\n", getInfoClientSocket(socket));
 
 
 
@@ -54,6 +54,7 @@ public class Server {
 
             while ((msg = input.readLine()) != null) {
                 // Invia una risposta al client
+                System.out.printf("%s ---> %s\n", getInfoClientSocket(socket), msg);
                 output.println(msg.toUpperCase());
             }
 
@@ -65,5 +66,10 @@ public class Server {
             System.out.println(e.getMessage());
         }
 
+    }
+
+
+    public static String getInfoClientSocket(Socket s){
+        return String.format("%s:%d", s.getInetAddress().getHostAddress(), s.getPort());
     }
 }
